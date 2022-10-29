@@ -1,0 +1,25 @@
+
+
+# todo 数据原配置
+
+
+#mybatis
+mybatis:
+  type-aliases-package: com.hill.**.domain
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mapper:
+  mappers: tk.mybatis.mapper.common.Mapper
+  not-empty: false
+  identity: MYSQL
+
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  rowBoundsWithCount: true
