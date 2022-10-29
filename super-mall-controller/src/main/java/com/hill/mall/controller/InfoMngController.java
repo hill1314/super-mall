@@ -4,6 +4,7 @@ import com.hill.mall.dao.domain.ApplicationSpaceInfo;
 import com.hill.mall.dao.operator.ApplicationSpaceInfoOperator;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -15,13 +16,14 @@ import java.util.List;
  * @Author huleilei9
  * @Date 2022/10/29
  **/
-@RestController("/space")
+@RestController
+@RequestMapping(value = "/space")
 public class InfoMngController {
 
     @Resource
     private ApplicationSpaceInfoOperator applicationSpaceInfoOperator;
 
-    @PostMapping("/list")
+    @PostMapping("/add")
     public int add(@RequestBody ApplicationSpaceInfo info) {
         return applicationSpaceInfoOperator.insert(info);
     }
@@ -36,8 +38,8 @@ public class InfoMngController {
         return applicationSpaceInfoOperator.updateByPrimaryKey(info);
     }
 
-    @PostMapping("/listAll")
-    public List listAll(@RequestBody ApplicationSpaceInfo info) {
+    @RequestMapping("/listAll")
+    public List listAll(@RequestBody(required = false) ApplicationSpaceInfo info) {
         return applicationSpaceInfoOperator.select();
     }
 

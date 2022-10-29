@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class PageHelperAspect {
 
-    @Pointcut("@annotation(com.hill.mall.dao.base.page.ExtPageHelper)")
+    @Pointcut("@annotation(com.hill.mall.dao.common.page.ExtPageHelper)")
     public void ServiceImpl() {
     }
 
